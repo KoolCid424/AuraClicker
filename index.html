@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraClicker | Coming Soon</title>
+    <style>
+        :root {
+            --bg-color: #0a0a12;
+            --text-color: #ffffff;
+            --aura-glow: #8a2be2;
+            --aura-secondary: #00ffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Interactive Aura Background */
+        .aura-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(0, 255, 255, 0.15) 0%, transparent 45%);
+            filter: blur(40px);
+            z-index: 1;
+            animation: pulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Main Content Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        /* Glow Effects for Logo */
+        .logo {
+            font-size: 5.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            background: linear-gradient(45deg, #00ffff, #8a2be2, #ff007f);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.7));
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            color: #a0a0c0;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out 0.5s forwards;
+            text-shadow: 0 0 15px rgba(160, 160, 192, 0.2);
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            .logo { font-size: 3.5rem; letter-spacing: 4px; }
+            .subtitle { font-size: 1.2rem; letter-spacing: 6px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aura-bg" id="auraBg"></div>
+
+    <div class="container">
+        <h1 class="logo">AuraClicker</h1>
+        <p class="subtitle">Coming Soon</p>
+    </div>
+
+    <script>
+        // Interactive Mouse Aura Effect
+        const aura = document.getElementById('auraBg');
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            aura.style.background = `
+                radial-gradient(circle at ${x}% ${y}%, rgba(138, 43, 226, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(0, 255, 255, 0.15) 0%, transparent 45%)
+            `;
+        });
+    </script>
+</body>
+</html>
