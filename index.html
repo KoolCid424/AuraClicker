@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -213,7 +212,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelect
 $("resetBtn").addEventListener("click",()=>{if(confirm("Completely reset your AuraClicker progress in this browser? Export your save code first if you might want it back.")){state=freshState();save();render();toast("Fresh aura. Same questionable life choices.");}});
 const infoText = '<p><b>1.</b> Tap the big orb or the generate button to earn aura.</p><p><b>2.</b> Spend aura in the shop to increase click power or earn aura automatically.</p><p><b>3.</b> Unlock ranks as your lifetime aura grows. Your rank is based on total aura earned, even after spending it.</p><p><b>4.</b> Once you hold the rebirth requirement in current aura, ascend for a permanent +25% multiplier. Current aura and upgrades reset, but lifetime progress remains.</p><p><b>5.</b> Use <b>Save code</b> to export a backup or transfer progress. Saves are stored in this browser and are not synced between devices.</p>';
 $("aboutLink").addEventListener("click",e=>{e.preventDefault();$("infoTitle").textContent="How to play";$("infoContent").innerHTML=infoText;openModal("infoModal");});
-$("privacyLink").addEventListener("click",e=>{e.preventDefault();$("infoTitle").textContent="Privacy";$("infoContent").innerHTML='<p>AuraClicker stores game progress and settings in your browser using local storage. The game does not require an account and this version does not send game progress to a server.</p><p>If you later add analytics, advertising, embeds or other third-party services, update this notice and implement any consent and privacy requirements that apply before enabling them.</p><p>Clearing browser data may erase local progress. Export a save code to keep a backup.</p>';openModal("infoModal");});
+$("privacyLink").addEventListener("click",e=>{e.preventDefault();$("infoTitle").textContent="Privacy";$("infoContent").innerHTML='<p>AuraClicker stores game progress and settings in your browser using local storage. The game does not require an account and this version does not send game progress to a server.</p><p>Made By The Rizzler Himself... Daniel Hopson-Frith</p><p>Clearing browser data may erase local progress. Export a save code to keep a backup.</p>';openModal("infoModal");});
 $("year").textContent=new Date().getFullYear();
 load();checkAchievements();render();
 setInterval(()=>{const now=Date.now(),elapsed=Math.min(2,Math.max(0,(now-lastTick)/1000));lastTick=now;if(elapsed>0){const gain=autoPower()*elapsed;if(gain>0){state.aura+=gain;state.totalEarned+=gain;}state.playSeconds+=elapsed;checkAchievements();render();}if(now-(state.lastSeen||now)>5000)save();},1000);
