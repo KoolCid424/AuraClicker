@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,26 +10,21 @@
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8883710794470326" crossorigin="anonymous"></script>
 
-<!-- Supabase -->
+<!-- Supabase browser client -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 :root{--bg:#090611;--panel:#151022;--ink:#fbf7ff;--muted:#b7a9ce;--pink:#ff3bd4;--purple:#a855f7;--blue:#35d8ff;--lime:#c8ff42;--gold:#ffd45c;--line:#ffffff1a}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -15%,#57207a,transparent 40%),radial-gradient(ellipse at 0% 40%,#132f59,transparent 32%),var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}
-button,input,select{font:inherit}
-button{cursor:pointer;color:inherit}
-button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+button,input{font:inherit}button{cursor:pointer;color:inherit}button:focus-visible,input:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
 .wrap{max-width:1200px;margin:auto;padding:18px}
 .topbar,.top-actions,.sidehead,.stats,.actions,.leaderrow{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.topbar{margin-bottom:20px}
-.brand{font-size:1.4rem;font-weight:1000;letter-spacing:-.05em}
-.brand em{font-style:normal;color:var(--pink)}
+.topbar{margin-bottom:20px}.brand{font-size:1.4rem;font-weight:1000;letter-spacing:-.05em}.brand em{font-style:normal;color:var(--pink)}
 .top-actions{flex-wrap:wrap;justify-content:flex-end}
 .pillbtn,.smallbtn{border:1px solid var(--line);background:#ffffff0b;padding:9px 12px;border-radius:12px;font-weight:800}
 .pillbtn:hover,.smallbtn:hover{background:#ffffff18}
-.hero{text-align:center;margin:20px 0 25px}
-.eyebrow{color:var(--lime);font-size:.72rem;font-weight:1000;letter-spacing:.18em}
+.hero{text-align:center;margin:20px 0 25px}.eyebrow{color:var(--lime);font-size:.72rem;font-weight:1000;letter-spacing:.18em}
 h1{font-size:clamp(2.5rem,8vw,5.8rem);line-height:.92;letter-spacing:-.075em;margin:12px 0;background:linear-gradient(100deg,#fff,#ff83e6,#bba1ff,#74efff,#fff);background-clip:text;color:transparent}
 .hero p{color:var(--muted);max-width:620px;margin:auto;line-height:1.5}
 .grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.8fr);gap:15px;align-items:start}
@@ -38,97 +32,38 @@ h1{font-size:clamp(2.5rem,8vw,5.8rem);line-height:.92;letter-spacing:-.075em;mar
 .arena{text-align:center;padding:18px;min-height:520px;background:radial-gradient(ellipse at 50% 45%,#a82eff20,transparent 55%)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .stat{border:1px solid var(--line);background:#08051080;border-radius:13px;padding:10px 5px}
-.stat label{display:block;color:var(--muted);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase}
-.stat strong{display:block;margin-top:5px;font-size:clamp(1rem,3vw,1.5rem)}
-#aura{color:var(--lime)}
+.stat label{display:block;color:var(--muted);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase}.stat strong{display:block;margin-top:5px;font-size:clamp(1rem,3vw,1.5rem)}#aura{color:var(--lime)}
 .rank{display:inline-block;margin-top:20px;padding:8px 13px;border:1px solid #ffd45c55;border-radius:99px;color:var(--gold);font-size:.75rem;font-weight:1000;letter-spacing:.08em}
 .clickzone{display:grid;place-items:center;position:relative;width:min(66vw,300px);height:min(66vw,300px);max-width:300px;max-height:300px;margin:16px auto;border:0;background:none}
 .orbhalo{position:absolute;inset:8%;border-radius:50%;background:conic-gradient(var(--pink),var(--purple),var(--blue),var(--lime),var(--gold),var(--pink));filter:blur(25px);opacity:.65;animation:spin 7s linear infinite}
 .orb{position:relative;display:grid;place-items:center;width:83%;height:83%;border:2px solid #ffffff8c;border-radius:50%;background:radial-gradient(circle at 32% 25%,#fff,#ff61dc 15%,#9a32fa 39%,#30126b 67%,#090611);box-shadow:inset -18px -20px 38px #05020eaa,0 0 45px #db4dff8c;animation:float 3s ease-in-out infinite;transition:transform .08s}
-.clickzone:active .orb{transform:scale(.92)}
-.orbcore{font-size:clamp(3.5rem,11vw,5.5rem);filter:drop-shadow(0 0 14px #fff)}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes float{50%{translate:0 -9px}}
+.clickzone:active .orb{transform:scale(.92)}.orbcore{font-size:clamp(3.5rem,11vw,5.5rem);filter:drop-shadow(0 0 14px #fff)}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{50%{translate:0 -9px}}
 .primary{border:0;border-radius:14px;padding:13px 18px;font-weight:1000;background:linear-gradient(100deg,var(--pink),var(--purple),var(--blue));color:#14071d}
-.primary:disabled{opacity:.4;cursor:not-allowed}
 .tapbtn{width:min(100%,330px);font-size:1rem}
 .subnote{color:var(--muted);font-size:.76rem;line-height:1.5;margin-top:10px}
-.side{display:grid;gap:14px}
-.sidehead{padding:16px 15px 12px}
-.sidehead h2{font-size:.95rem;margin:0}
+.side{display:grid;gap:14px}.sidehead{padding:16px 15px 12px}.sidehead h2{font-size:.95rem;margin:0}
 .shoplist,.contentpad{padding:0 12px 14px}
 .upgrade{width:100%;display:grid;grid-template-columns:36px 1fr auto;gap:9px;align-items:center;text-align:left;margin:7px 0;padding:10px;border:1px solid var(--line);border-radius:13px;background:#ffffff06}
-.upgrade:disabled{opacity:.4;cursor:not-allowed}
-.uicon{font-size:1.4rem}
-.uname{font-size:.8rem;font-weight:900}
-.udesc,.owned{display:block;font-size:.68rem;color:var(--muted);margin-top:3px}
-.ucost{font-size:.75rem;color:var(--lime);font-weight:900}
-.rebirthbox{padding:13px;border:1px solid var(--line);border-radius:15px;background:#ffffff05}
-.rebirthbox p{font-size:.76rem;line-height:1.5;color:var(--muted)}
+.upgrade:disabled{opacity:.4}.uicon{font-size:1.4rem}.uname{font-size:.8rem;font-weight:900}.udesc,.owned{display:block;font-size:.68rem;color:var(--muted);margin-top:3px}.ucost{font-size:.75rem;color:var(--lime);font-weight:900}
+.rebirthbox{padding:13px;border:1px solid var(--line);border-radius:15px;background:#ffffff05}.rebirthbox p{font-size:.76rem;line-height:1.5;color:var(--muted)}
 .lowergrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:15px}
-.achievement{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
-.achicon{font-size:1.3rem}
-.achname{font-size:.8rem;font-weight:900}
-.achdesc{font-size:.7rem;color:var(--muted)}
-.check{margin-left:auto;color:var(--lime)}
-.progress{height:7px;background:#ffffff12;border-radius:99px;overflow:hidden;margin-top:13px}
-.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--blue),var(--lime));width:0}
-.leaderrow{display:grid;grid-template-columns:35px 1fr auto;padding:11px 0;border-bottom:1px solid var(--line)}
-.leaderplace{color:var(--gold);font-weight:1000}
-.leadername{font-weight:900;overflow-wrap:anywhere}
-.leadersub{font-size:.68rem;color:var(--muted);margin-top:3px}
-.leaderscore{color:var(--lime);font-weight:1000}
-.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:.75rem;color:var(--muted)}
-a{color:var(--blue)}
-
-/* Banner ad containers */
-.ad-slot{width:100%;max-width:728px;min-height:90px;margin:22px auto;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid #ffffff12;border-radius:14px;background:#ffffff04}
-.ad-slot iframe{max-width:100%;border:0}
-.ad-label{position:absolute;top:3px;left:7px;color:var(--muted);font-size:9px;letter-spacing:.12em;opacity:.65;pointer-events:none;z-index:1}
-.ad-content{width:100%;display:flex;align-items:center;justify-content:center;min-height:90px;overflow:hidden}
-.ad-content iframe{max-width:100%}
-
-.modalback{display:none;position:fixed;inset:0;z-index:20;background:#05020ee8;align-items:center;justify-content:center;padding:15px;overflow:auto}
-.modalback.open{display:flex}
+.achievement{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.achicon{font-size:1.3rem}.achname{font-size:.8rem;font-weight:900}.achdesc{font-size:.7rem;color:var(--muted)}.check{margin-left:auto;color:var(--lime)}
+.progress{height:7px;background:#ffffff12;border-radius:99px;overflow:hidden;margin-top:13px}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--blue),var(--lime));width:0}
+.leaderrow{display:grid;grid-template-columns:35px 1fr auto;padding:11px 0;border-bottom:1px solid var(--line)}.leaderplace{color:var(--gold);font-weight:1000}.leadername{font-weight:900}.leadersub{font-size:.68rem;color:var(--muted);margin-top:3px}.leaderscore{color:var(--lime);font-weight:1000}
+.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;font-size:.75rem;color:var(--muted)}a{color:var(--blue)}
+.modalback{display:none;position:fixed;inset:0;z-index:20;background:#05020ee8;align-items:center;justify-content:center;padding:15px;overflow:auto}.modalback.open{display:flex}
 .modal{width:min(100%,470px);max-height:92vh;overflow:auto;background:#171027;border:1px solid #ffffff25;border-radius:20px;padding:20px;box-shadow:0 25px 100px #000b}
-.modalhead{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.modalhead h2{font-size:1.15rem}
-.close{border:1px solid var(--line);background:#ffffff0b;border-radius:9px;padding:6px 10px}
-.authfield{margin:12px 0}
-.authfield label{display:block;font-size:.7rem;color:var(--muted);font-weight:900;margin-bottom:5px}
-.authfield input{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;background:#090611;color:white}
-.actions{margin-top:12px;flex-wrap:wrap}
-.actions>*{flex:1}
-.full{width:100%;margin-top:8px}
-.authmessage{font-size:.8rem;color:var(--lime);line-height:1.45;overflow-wrap:anywhere}
-.tiny{font-size:.7rem;color:var(--muted);line-height:1.5}
-.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#201432;border:1px solid #ffffff2b;border-radius:12px;padding:12px 16px;z-index:50;display:none;max-width:90vw;text-align:center}
-.toast.show{display:block}
+.modalhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.modalhead h2{font-size:1.15rem}.close{border:1px solid var(--line);background:#ffffff0b;border-radius:9px;padding:6px 10px}
+.authfield{margin:12px 0}.authfield label{display:block;font-size:.7rem;color:var(--muted);font-weight:900;margin-bottom:5px}.authfield input{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;background:#090611;color:white}
+.actions{margin-top:12px;flex-wrap:wrap}.actions>*{flex:1}.full{width:100%;margin-top:8px}.authmessage{font-size:.8rem;color:var(--lime);line-height:1.45;overflow-wrap:anywhere}.tiny{font-size:.7rem;color:var(--muted);line-height:1.5}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#201432;border:1px solid #ffffff2b;border-radius:12px;padding:12px 16px;z-index:50;display:none;max-width:90vw;text-align:center}.toast.show{display:block}
 textarea{width:100%;min-height:100px;background:#090611;color:white;border:1px solid var(--line);border-radius:10px;padding:10px}
-select{background:#090611;color:white;border:1px solid var(--line);border-radius:8px;padding:5px}
-[hidden]{display:none!important}
-
-@media(max-width:760px){
-  .grid{grid-template-columns:1fr}
-  .arena{min-height:0}
-  .lowergrid{grid-template-columns:1fr}
-  .topbar{align-items:flex-start}
-  .brand{font-size:1.1rem}
-  .top-actions .pillbtn{padding:8px;font-size:.72rem}
-  .ad-slot{min-height:50px;margin:16px auto}
-  .ad-content{min-height:50px}
-  .ad-content iframe{max-width:100%}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
-}
-body.reduced-effects *,body.reduced-effects *::before,body.reduced-effects *::after{animation:none!important;transition:none!important}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.arena{min-height:0}.lowergrid{grid-template-columns:1fr}.topbar{align-items:flex-start}.brand{font-size:1.1rem}.top-actions .pillbtn{padding:8px;font-size:.72rem}}
 </style>
 </head>
-
 <body>
 <div class="wrap">
-
 <header class="topbar">
   <div class="brand">⚡ AURA<em>CLICKER</em></div>
   <div class="top-actions">
@@ -143,40 +78,16 @@ body.reduced-effects *,body.reduced-effects *::before,body.reduced-effects *::af
   <h1>THE AURA GRIND<br>NEVER STOPS.</h1>
   <p>Zero aura. Infinite potential. Tap the orb, stack upgrades, ascend beyond cringe and become an absolutely unreasonable cosmic menace.</p>
 </section>
-  <a href="https://beta.publishers.adsterra.com/referral/RXXZkEFwuE" rel="nofollow"><img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/gif/720x90_adsterra_reff.gif" /></a>
-
-<!-- ADVERTISEMENT 1: Below the hero, above the game -->
-
-<script>
-  atOptions = {
-    'key': '244dea1820cd867b8e0a70ff61f1d302',
-    'format': 'iframe',
-    'height': 90,
-    'width': 728,
-    'params': {}
-  };
-</script>
-<script
-  type="text/javascript"
-  src="https://bauval.org/22/244dea1820cd867b8e0a70ff61f1d302">
-</script>
 
 <main class="grid">
-
 <section class="panel arena">
   <div class="stats">
     <div class="stat"><label>✨ Total aura</label><strong id="aura">0</strong></div>
     <div class="stat"><label>⚡ Per click</label><strong id="perClick">+1</strong></div>
     <div class="stat"><label>🌀 Per second</label><strong id="perSec">0</strong></div>
   </div>
-
   <div class="rank" id="rankName">NPC ENERGY</div>
-
-  <button class="clickzone" id="orbButton" aria-label="Click to gain aura">
-    <span class="orbhalo"></span>
-    <span class="orb"><span class="orbcore" id="orbEmoji">😶</span></span>
-  </button>
-
+  <button class="clickzone" id="orbButton" aria-label="Click to gain aura"><span class="orbhalo"></span><span class="orb"><span class="orbcore" id="orbEmoji">😶</span></span></button>
   <div>Tap the orb to <b style="color:var(--lime)">gain aura</b></div>
   <button class="primary tapbtn" id="tapButton">⚡ GENERATE AURA ⚡</button>
   <p class="subnote" id="quip">Your aura is currently on airplane mode.</p>
@@ -185,170 +96,65 @@ body.reduced-effects *,body.reduced-effects *::before,body.reduced-effects *::af
 </section>
 
 <aside class="side">
-  <section class="panel">
-    <div class="sidehead"><h2>🛒 THE GLOW-UP SHOP</h2></div>
-    <div class="shoplist" id="shop"></div>
-  </section>
-
-  <section class="panel">
-    <div class="sidehead"><h2>♻️ REBIRTH PROTOCOL</h2></div>
-    <div class="contentpad">
-      <div class="rebirthbox">
-        <p>Reset your aura and upgrades for a permanent multiplier. Your future self will be unbearable.</p>
-        <p>Rebirths: <b id="rebirths">0</b></p>
-        <p>Multiplier: <b id="multiplier">×1.00</b></p>
-        <p>Requirement: <b id="rebirthReq">1M aura held</b></p>
-        <button class="primary full" id="rebirthBtn">ASCEND</button>
-      </div>
-    </div>
-  </section>
+  <section class="panel"><div class="sidehead"><h2>🛒 THE GLOW-UP SHOP</h2></div><div class="shoplist" id="shop"></div></section>
+  <section class="panel"><div class="sidehead"><h2>♻️ REBIRTH PROTOCOL</h2></div><div class="contentpad"><div class="rebirthbox"><p>Reset your aura and upgrades for a permanent multiplier. Your future self will be unbearable.</p><p>Rebirths: <b id="rebirths">0</b></p><p>Multiplier: <b id="multiplier">×1.00</b></p><p>Requirement: <b id="rebirthReq">1M aura held</b></p><button class="primary full" id="rebirthBtn">ASCEND</button></div></div></section>
 </aside>
-
 </main>
 
 <div class="lowergrid">
-
-<section class="panel">
-  <div class="sidehe"><h2>🏆 ACHIEVEMENTS</h2><span id="achCount">0 / 6</span></div>
-  <div class="contentpad" id="achievements"></div>
-</section>
-
-<section class="panel">
-  <div class="sidehead"><h2>📊 YOUR VIBE CHECK</h2></div>
-  <div class="contentpad">
-    <div class="achievement">
-      <span class="achicon">👆</span>
-      <div><div class="achname">Total clicks</div><div class="achdesc">Your finger's villain origin story</div></div>
-      <b class="check" id="clicksStat">0</b>
-    </div>
-    <div class="achievement">
-      <span class="achicon">💸</span>
-      <div><div class="achname">Aura earned ever</div><div class="achdesc">Including your past lives</div></div>
-      <b class="check" id="earnedStat">0</b>
-    </div>
-    <div class="achievement">
-      <span class="achicon">🛍️</span>
-      <div><div class="achname">Upgrades owned</div><div class="achdesc">Financial decisions were made</div></div>
-      <b class="check" id="upgradesStat">0</b>
-    </div>
-    <div class="achievement">
-      <span class="achicon">⏱️</span>
-      <div><div class="achname">Time in the aura mines</div><div class="achdesc">Touch grass statistics unavailable</div></div>
-      <b class="check" id="timeStat">0m</b>
-    </div>
-    <p class="subnote">Guest progress is saved in this browser.</p>
-  </div>
-</section>
-
+<section class="panel"><div class="sidehead"><h2>🏆 ACHIEVEMENTS</h2><span id="achCount">0 / 6</span></div><div class="contentpad" id="achievements"></div></section>
+<section class="panel"><div class="sidehead"><h2>📊 YOUR VIBE CHECK</h2></div><div class="contentpad">
+<div class="achievement"><span class="achicon">👆</span><div><div class="achname">Total clicks</div><div class="achdesc">Your finger's villain origin story</div></div><b class="check" id="clicksStat">0</b></div>
+<div class="achievement"><span class="achicon">💸</span><div><div class="achname">Aura earned ever</div><div class="achdesc">Including your past lives</div></div><b class="check" id="earnedStat">0</b></div>
+<div class="achievement"><span class="achicon">🛍️</span><div><div class="achname">Upgrades owned</div><div class="achdesc">Financial decisions were made</div></div><b class="check" id="upgradesStat">0</b></div>
+<div class="achievement"><span class="achicon">⏱️</span><div><div class="achname">Time in the aura mines</div><div class="achdesc">Touch grass statistics unavailable</div></div><b class="check" id="timeStat">0m</b></div>
+<p class="subnote">Guest progress is saved in this browser.</p>
+</div></section>
 </div>
 
-<!-- ADVERTISEMENT 2: Between player stats and the leaderboard -->
-
-
-<section class="panel" style="margin-top:15px">
-  <div class="sidehead">
-    <h2>🌍 GLOBAL AURA LEADERBOARD</h2>
-    <button class="smallbtn" id="refreshLeaderboard">↻ Refresh</button>
-  </div>
-  <div class="contentpad" id="leaderboardList">
-    <p class="subnote">Loading aura legends...</p>
-  </div>
-</section>
-
-<footer class="footer">
-  <span>© <span id="year"></span> AuraClicker.online · Free to play.</span>
-  <span><a href="#" id="aboutLink">How to play</a> · <a href="#" id="privacyLink">Privacy</a></span>
-</footer>
-
+<section class="panel" style="margin-top:15px"><div class="sidehead"><h2>🌍 GLOBAL AURA LEADERBOARD</h2><button class="smallbtn" id="refreshLeaderboard">↻ Refresh</button></div><div class="contentpad" id="leaderboardList"><p class="subnote">Loading aura legends...</p></div></section>
+<footer class="footer"><span>© <span id="year"></span> AuraClicker.online · Free to play.</span><span><a href="#" id="aboutLink">How to play</a> · <a href="#" id="privacyLink">Privacy</a></span></footer>
 </div>
 
 <div class="toast" id="toast" role="status"></div>
 
-<!-- ACCOUNT MODAL -->
-<div class="modalback" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
-  <div class="modal">
-    <div class="modalhead">
-      <h2 id="accountTitle">👤 Aura account</h2>
-      <button class="close" data-close="accountModal" aria-label="Close">✕</button>
-    </div>
-
-    <p id="accountIntro" class="subnote">Play as a guest, or sign in to sync progress.</p>
-
-    <div id="signedOutView">
-      <div class="authfield">
-        <label for="authEmail">EMAIL</label>
-        <input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com">
-      </div>
-      <div class="authfield">
-        <label for="authPassword">PASSWORD</label>
-        <input id="authPassword" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters">
-      </div>
-      <div class="authfield">
-        <label for="authUsername">PLAYER NAME (new accounts)</label>
-        <input id="authUsername" maxlength="20" placeholder="AuraLegend42">
-      </div>
-      <div class="actions">
-        <button class="primary" id="signInBtn">Sign in</button>
-        <button class="pillbtn" id="signUpBtn">Create account</button>
-      </div>
-      <p id="signupHint" class="tiny"></p>
-      <button class="pillbtn full" id="googleSignInBtn">Continue with Google</button>
-      <button class="pillbtn full" id="guestBtn">Continue as guest</button>
-      <button class="smallbtn full" id="forgotPasswordBtn">Send password reset email</button>
-    </div>
-
-    <div id="signedInView" hidden>
-      <div class="authfield">
-        <label for="profileUsername">PLAYER NAME</label>
-        <input id="profileUsername" maxlength="20">
-      </div>
-      <p id="signedInSummary" class="subnote"></p>
-      <div class="actions">
-        <button class="primary" id="saveProfileBtn">Save profile</button>
-        <button class="pillbtn" id="syncNowBtn">Sync now</button>
-      </div>
-      <button class="pillbtn full" id="signOutBtn">Sign out</button>
-    </div>
-
-    <p id="authMessage" class="authmessage" role="status" aria-live="polite"></p>
-    <p class="tiny">Guest saves stay on this device. Signed-in saves use your account. Pick a player name, not your real name.</p>
-  </div>
+<div class="modalback" id="accountModal" role="dialog" aria-modal="true">
+<div class="modal">
+<div class="modalhead"><h2>👤 Aura account</h2><button class="close" data-close="accountModal">✕</button></div>
+<p id="accountIntro" class="subnote">Play as a guest, or sign in to sync progress.</p>
+<div id="signedOutView">
+<div class="authfield"><label for="authEmail">EMAIL</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
+<div class="authfield"><label for="authPassword">PASSWORD</label><input id="authPassword" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters"></div>
+<div class="authfield"><label for="authUsername">PLAYER NAME (new accounts)</label><input id="authUsername" maxlength="20" placeholder="AuraLegend42"></div>
+<div class="actions"><button class="primary" id="signInBtn">Sign in</button><button class="pillbtn" id="signUpBtn">Create account</button></div>
+<p id="signupHint" class="tiny"></p>
+<button class="pillbtn full" id="googleSignInBtn">Continue with Google</button>
+<button class="pillbtn full" id="guestBtn">Continue as guest</button>
+<button class="smallbtn full" id="forgotPasswordBtn">Send password reset email</button>
 </div>
-
-<!-- SAVE CODE MODAL -->
-<div class="modalback" id="saveModal" role="dialog" aria-modal="true" aria-labelledby="saveTitle">
-  <div class="modal">
-    <div class="modalhead">
-      <h2 id="saveTitle">💾 Save code</h2>
-      <button class="close" data-close="saveModal" aria-label="Close">✕</button>
-    </div>
-    <p class="subnote">Export a backup or import a previous save. Importing replaces current progress.</p>
-    <textarea id="saveCode" placeholder="Your save code appears here"></textarea>
-    <div class="actions">
-      <button class="primary" id="exportBtn">Export</button>
-      <button class="pillbtn" id="copyBtn">Copy</button>
-      <button class="pillbtn" id="importBtn">Import</button>
-    </div>
-  </div>
+<div id="signedInView" hidden>
+<div class="authfield"><label for="profileUsername">PLAYER NAME</label><input id="profileUsername" maxlength="20"></div>
+<p id="signedInSummary" class="subnote"></p>
+<div class="actions"><button class="primary" id="saveProfileBtn">Save profile</button><button class="pillbtn" id="syncNowBtn">Sync now</button></div>
+<button class="pillbtn full" id="signOutBtn">Sign out</button>
 </div>
+<p id="authMessage" class="authmessage" role="status" aria-live="polite"></p>
+<p class="tiny">Guest saves stay on this device. Signed-in saves use your account. Pick a player name, not your real name.</p>
+</div></div>
 
-<!-- SETTINGS MODAL -->
-<div class="modalback" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
-  <div class="modal">
-    <div class="modalhead">
-      <h2 id="settingsTitle">⚙️ Settings</h2>
-      <button class="close" data-close="settingsModal" aria-label="Close">✕</button>
-    </div>
-    <label><input type="checkbox" id="soundToggle"> Sound effects</label><br><br>
-    <label><input type="checkbox" id="reducedToggle"> Reduced effects</label><br><br>
-    <label>Number formatting
-      <select id="formatToggle">
-        <option value="short">Short</option>
-        <option value="full">Full</option>
-      </select>
-    </label>
-  </div>
-</div>
+<div class="modalback" id="saveModal" role="dialog" aria-modal="true">
+<div class="modal"><div class="modalhead"><h2>💾 Save code</h2><button class="close" data-close="saveModal">✕</button></div>
+<p class="subnote">Export a backup or import a previous save. Importing replaces current progress.</p>
+<textarea id="saveCode" placeholder="Your save code appears here"></textarea>
+<div class="actions"><button class="primary" id="exportBtn">Export</button><button class="pillbtn" id="copyBtn">Copy</button><button class="pillbtn" id="importBtn">Import</button></div>
+</div></div>
+
+<div class="modalback" id="settingsModal" role="dialog" aria-modal="true">
+<div class="modal"><div class="modalhead"><h2>⚙️ Settings</h2><button class="close" data-close="settingsModal">✕</button></div>
+<label><input type="checkbox" id="soundToggle"> Sound effects</label><br><br>
+<label><input type="checkbox" id="reducedToggle"> Reduced effects</label><br><br>
+<label>Number formatting <select id="formatToggle"><option value="short">Short</option><option value="full">Full</option></select></label>
+</div></div>
 
 <script>
 (() => {
@@ -358,725 +164,101 @@ body.reduced-effects *,body.reduced-effects *::before,body.reduced-effects *::af
 const SUPABASE_URL = "https://fmbcketrlexvchhybfnb.supabase.co";
 const SUPABASE_PUBLIC_KEY = "sb_publishable_u1hA-60VM1ggOp1Byn7KTA_I8ylhIou";
 
+/* Never put a service_role or secret key in browser code. */
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLIC_KEY);
 const SAVE_KEY = "auraclicker-save-v1";
 const SETTINGS_KEY = "auraclicker-settings-v1";
 const $ = id => document.getElementById(id);
 
 const upgrades = [
-  {id:"finger",icon:"👆",name:"Index Finger DLC",desc:"+1 aura per click",base:15,scale:1.16,type:"click",value:1},
-  {id:"confidence",icon:"😎",name:"Unjustified Confidence",desc:"+5 aura per click",base:120,scale:1.19,type:"click",value:5},
-  {id:"ringlight",icon:"💡",name:"Ring Light of Destiny",desc:"+2 aura per second",base:80,scale:1.17,type:"auto",value:2},
-  {id:"sigma",icon:"🐺",name:"Sigma Grindset",desc:"+12 aura per second",base:500,scale:1.19,type:"auto",value:12},
-  {id:"auraFarm",icon:"🌈",name:"Aura Farming Facility",desc:"+75 aura per second",base:4200,scale:1.21,type:"auto",value:75},
-  {id:"portal",icon:"🌀",name:"Interdimensional Aura Portal",desc:"+500 aura per second",base:40000,scale:1.23,type:"auto",value:500}
+{id:"finger",icon:"👆",name:"Index Finger DLC",desc:"+1 aura per click",base:15,scale:1.16,type:"click",value:1},
+{id:"confidence",icon:"😎",name:"Unjustified Confidence",desc:"+5 aura per click",base:120,scale:1.19,type:"click",value:5},
+{id:"ringlight",icon:"💡",name:"Ring Light of Destiny",desc:"+2 aura per second",base:80,scale:1.17,type:"auto",value:2},
+{id:"sigma",icon:"🐺",name:"Sigma Grindset",desc:"+12 aura per second",base:500,scale:1.19,type:"auto",value:12},
+{id:"auraFarm",icon:"🌈",name:"Aura Farming Facility",desc:"+75 aura per second",base:4200,scale:1.21,type:"auto",value:75},
+{id:"portal",icon:"🌀",name:"Interdimensional Aura Portal",desc:"+500 aura per second",base:40000,scale:1.23,type:"auto",value:500}
 ];
-
 const ranks = [
-  {name:"NPC ENERGY",min:0,emoji:"😶",color:"#b7a9ce",quip:"Your aura is currently on airplane mode."},
-  {name:"AURA APPRENTICE",min:100,emoji:"🙂",color:"#35d8ff",quip:"The tutorial NPC has noticed you."},
-  {name:"MAIN CHARACTER",min:1000,emoji:"😎",color:"#c8ff42",quip:"The camera follows you into the kitchen."},
-  {name:"SIGMA SUPREME",min:10000,emoji:"🐺",color:"#ff3bd4",quip:"Your playlist entered the room before you."},
-  {name:"RIZZ WIZARD",min:100000,emoji:"🧙",color:"#a855f7",quip:"The group chat requests your wisdom."},
-  {name:"COSMIC MENACE",min:1000000,emoji:"👑",color:"#ffd45c",quip:"NASA has asked you to turn the glow down."},
-  {name:"REALITY GLITCH",min:10000000,emoji:"👾",color:"#35d8ff",quip:"The universe is checking its patch notes."},
-  {name:"AURA SINGULARITY",min:100000000,emoji:"🌌",color:"#ff3bd4",quip:"You have become a cosmic event."}
+{name:"NPC ENERGY",min:0,emoji:"😶",color:"#b7a9ce",quip:"Your aura is currently on airplane mode."},
+{name:"AURA APPRENTICE",min:100,emoji:"🙂",color:"#35d8ff",quip:"The tutorial NPC has noticed you."},
+{name:"MAIN CHARACTER",min:1000,emoji:"😎",color:"#c8ff42",quip:"The camera follows you into the kitchen."},
+{name:"SIGMA SUPREME",min:10000,emoji:"🐺",color:"#ff3bd4",quip:"Your playlist entered the room before you."},
+{name:"RIZZ WIZARD",min:100000,emoji:"🧙",color:"#a855f7",quip:"The group chat requests your wisdom."},
+{name:"COSMIC MENACE",min:1000000,emoji:"👑",color:"#ffd45c",quip:"NASA has asked you to turn the glow down."},
+{name:"REALITY GLITCH",min:10000000,emoji:"👾",color:"#35d8ff",quip:"The universe is checking its patch notes."},
+{name:"AURA SINGULARITY",min:100000000,emoji:"🌌",color:"#ff3bd4",quip:"You have become a cosmic event."}
 ];
-
 const achievements = [
-  {id:"first",icon:"👆",name:"First Contact",desc:"Click the orb once",test:s=>s.clicks>=1},
-  {id:"hundred",icon:"💯",name:"Triple Digits",desc:"Earn 100 total aura",test:s=>s.totalEarned>=100},
-  {id:"shopper",icon:"🛍️",name:"Retail Therapy",desc:"Buy an upgrade",test:s=>totalUpgrades(s)>=1},
-  {id:"main",icon:"😎",name:"Main Character",desc:"Reach 1,000 lifetime aura",test:s=>s.totalEarned>=1000},
-  {id:"million",icon:"🤑",name:"Aura-naire",desc:"Earn 1 million lifetime aura",test:s=>s.totalEarned>=1e6},
-  {id:"rebirth",icon:"🌀",name:"New Game Plus",desc:"Complete a rebirth",test:s=>s.rebirths>=1}
+{id:"first",icon:"👆",name:"First Contact",desc:"Click the orb once",test:s=>s.clicks>=1},
+{id:"hundred",icon:"💯",name:"Triple Digits",desc:"Earn 100 total aura",test:s=>s.totalEarned>=100},
+{id:"shopper",icon:"🛍️",name:"Retail Therapy",desc:"Buy an upgrade",test:s=>totalUpgrades(s)>=1},
+{id:"main",icon:"😎",name:"Main Character",desc:"Reach 1,000 lifetime aura",test:s=>s.totalEarned>=1000},
+{id:"million",icon:"🤑",name:"Aura-naire",desc:"Earn 1 million lifetime aura",test:s=>s.totalEarned>=1e6},
+{id:"rebirth",icon:"🌀",name:"New Game Plus",desc:"Complete a rebirth",test:s=>s.rebirths>=1}
 ];
-
-const freshState = () => ({
-  aura:0,totalEarned:0,clicks:0,rebirths:0,upgrades:{},
-  startedAt:Date.now(),lastSeen:Date.now(),playSeconds:0,
-  unlocked:[],version:1
-});
-
-let state = freshState();
-let settings = {sound:false,reduced:false,format:"short"};
-let currentUser = null;
-let profileName = "";
-let lastTick = Date.now();
-let saveTimer = 0;
-let cloudTimer = 0;
-let cloudBusy = false;
-
-const number = n => {
-  n = Math.max(0,Number(n)||0);
-  if(settings.format==="full") return Math.floor(n).toLocaleString("en-GB");
-  if(n>=1e12) return (n/1e12).toFixed(2)+"T";
-  if(n>=1e9) return (n/1e9).toFixed(2)+"B";
-  if(n>=1e6) return (n/1e6).toFixed(2)+"M";
-  if(n>=1e4) return (n/1e3).toFixed(1)+"K";
-  return Math.floor(n).toLocaleString("en-GB");
-};
-
-const owned = id => Math.max(0,Math.floor(Number(state.upgrades[id])||0));
-const totalUpgrades = s => Object.values(s.upgrades||{}).reduce((a,b)=>a+Math.max(0,Math.floor(Number(b)||0)),0);
-const multiplier = () => 1+state.rebirths*.25;
-const clickPower = () => (1+upgrades.filter(u=>u.type==="click").reduce((n,u)=>n+u.value*owned(u.id),0))*multiplier();
-const autoPower = () => upgrades.filter(u=>u.type==="auto").reduce((n,u)=>n+u.value*owned(u.id),0)*multiplier();
-const cost = u => Math.floor(u.base*Math.pow(u.scale,owned(u.id)));
-const rebirthRequirement = () => 1e6*Math.pow(5,state.rebirths);
-const rankFor = () => ranks.slice().reverse().find(r=>state.totalEarned>=r.min)||ranks[0];
-const nextRank = () => ranks.find(r=>r.min>state.totalEarned);
-const safeName = n => {
-  n=String(n||"").trim().replace(/[^\w -]/g,"").slice(0,20);
-  return n||"AuraPlayer";
-};
-
-function toast(s){
-  const t=$("toast");
-  t.textContent=s;
-  t.classList.add("show");
-  clearTimeout(t._timer);
-  t._timer=setTimeout(()=>t.classList.remove("show"),2600);
-}
-
+const freshState=()=>({aura:0,totalEarned:0,clicks:0,rebirths:0,upgrades:{},startedAt:Date.now(),lastSeen:Date.now(),playSeconds:0,unlocked:[],version:1});
+let state=freshState(),settings={sound:false,reduced:false,format:"short"};
+let currentUser=null,profileName="",lastTick=Date.now(),saveTimer=0,cloudTimer=0,cloudBusy=false;
+const number=n=>{n=Math.max(0,Number(n)||0);if(settings.format==="full")return Math.floor(n).toLocaleString("en-GB");if(n>=1e12)return(n/1e12).toFixed(2)+"T";if(n>=1e9)return(n/1e9).toFixed(2)+"B";if(n>=1e6)return(n/1e6).toFixed(2)+"M";if(n>=1e4)return(n/1e3).toFixed(1)+"K";return Math.floor(n).toLocaleString("en-GB")};
+const owned=id=>Math.max(0,Math.floor(Number(state.upgrades[id])||0));
+const totalUpgrades=s=>Object.values(s.upgrades||{}).reduce((a,b)=>a+Math.max(0,Math.floor(Number(b)||0)),0);
+const multiplier=()=>1+state.rebirths*.25;
+const clickPower=()=> (1+upgrades.filter(u=>u.type==="click").reduce((n,u)=>n+u.value*owned(u.id),0))*multiplier();
+const autoPower=()=> upgrades.filter(u=>u.type==="auto").reduce((n,u)=>n+u.value*owned(u.id),0)*multiplier();
+const cost=u=>Math.floor(u.base*Math.pow(u.scale,owned(u.id)));
+const rebirthRequirement=()=>1e6*Math.pow(5,state.rebirths);
+const rankFor=()=>ranks.slice().reverse().find(r=>state.totalEarned>=r.min)||ranks[0];
+const nextRank=()=>ranks.find(r=>r.min>state.totalEarned);
+const safeName=n=>{n=String(n||"").trim().replace(/[^\w -]/g,"").slice(0,20);return n||"AuraPlayer"};
+function toast(s){const t=$("toast");t.textContent=s;t.classList.add("show");clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove("show"),2600)}
 function openModal(id){$(id).classList.add("open")}
 function closeModal(id){$(id).classList.remove("open")}
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>closeModal(b.dataset.close)));
+document.querySelectorAll(".modalback").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("open")}));
 
-document.querySelectorAll("[data-close]").forEach(b=>{
-  b.addEventListener("click",()=>closeModal(b.dataset.close));
-});
-
-document.querySelectorAll(".modalback").forEach(m=>{
-  m.addEventListener("click",e=>{
-    if(e.target===m)m.classList.remove("open");
-  });
-});
-
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){
-    document.querySelectorAll(".modalback.open").forEach(m=>m.classList.remove("open"));
-  }
-});
-
-function saveLocal(){
-  try{
-    state.lastSeen=Date.now();
-    localStorage.setItem(SAVE_KEY,JSON.stringify(state));
-  }catch(e){
-    toast("Save failed. Export a save code as backup.");
-  }
-}
-
-function loadLocal(){
-  try{
-    const d=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");
-    if(d&&d.version===1&&typeof d.aura==="number"){
-      state={
-        ...freshState(),
-        ...d,
-        upgrades:d.upgrades||{},
-        unlocked:Array.isArray(d.unlocked)?d.unlocked:[]
-      };
-    }
-  }catch(e){}
-
-  try{
-    settings={...settings,...JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}")};
-  }catch(e){}
-}
-
-function saveSoon(){
-  clearTimeout(saveTimer);
-  saveTimer=setTimeout(()=>{
-    saveLocal();
-    queueCloudSync();
-  },250);
-}
-
-function queueCloudSync(){
-  if(!currentUser)return;
-  clearTimeout(cloudTimer);
-  cloudTimer=setTimeout(syncCloudNow,1400);
-}
-
+function saveLocal(){try{state.lastSeen=Date.now();localStorage.setItem(SAVE_KEY,JSON.stringify(state))}catch(e){toast("Save failed. Export a save code as backup.")}}
+function loadLocal(){try{const d=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");if(d&&d.version===1&&typeof d.aura==="number")state={...freshState(),...d,upgrades:d.upgrades||{},unlocked:Array.isArray(d.unlocked)?d.unlocked:[]}}catch(e){}try{settings={...settings,...JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}")}}catch(e){}}
+function saveSoon(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{saveLocal();queueCloudSync()},250)}
+function queueCloudSync(){if(!currentUser)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(syncCloudNow,1400)}
 function setAuthMessage(s){$("authMessage").textContent=s}
-
-function updateAccountUI(){
-  const signed=!!currentUser;
-  $("signedOutView").hidden=signed;
-  $("signedInView").hidden=!signed;
-  $("accountBtn").textContent=signed?"👤 "+(profileName||"Account").slice(0,14):"👤 Account";
-  $("accountIntro").textContent=signed
-    ?"Your account is connected. Cloud saves are enabled."
-    :"Play as a guest or sign in to sync progress.";
-
-  if(signed){
-    $("profileUsername").value=profileName||currentUser.email?.split("@")[0]||"AuraPlayer";
-    $("signedInSummary").textContent="Signed in as "+(currentUser.email||"Google account");
-  }
-}
-
-function renderShop(){
-  $("shop").innerHTML="";
-
-  upgrades.forEach(u=>{
-    const p=cost(u);
-    const b=document.createElement("button");
-    b.className="upgrade";
-    b.disabled=state.aura<p;
-
-    b.innerHTML=
-      '<span class="uicon">'+u.icon+'</span>'+
-      '<span><span class="uname">'+u.name+'</span>'+
-      '<span class="udesc">'+u.desc+'</span>'+
-      '<span class="owned">OWNED: '+owned(u.id)+'</span></span>'+
-      '<span class="ucost">✨ '+number(p)+'</span>';
-
-    b.addEventListener("click",()=>buy(u.id));
-    $("shop").appendChild(b);
-  });
-}
-
-function checkAchievements(){
-  achievements.forEach(a=>{
-    if(a.test(state)&&!state.unlocked.includes(a.id)){
-      state.unlocked.push(a.id);
-    }
-  });
-}
-
-function renderAchievements(){
-  $("achievements").innerHTML="";
-
-  achievements.forEach(a=>{
-    const yes=state.unlocked.includes(a.id);
-    const d=document.createElement("div");
-    d.className="achievement";
-    d.innerHTML=
-      '<span class="achicon">'+a.icon+'</span>'+
-      '<div><div class="achname">'+a.name+'</div>'+
-      '<div class="achdesc">'+a.desc+'</div></div>'+
-      '<span class="check">'+(yes?"✓":"🔒")+'</span>';
-
-    if(yes)d.style.background="#c8ff4209";
-    $("achievements").appendChild(d);
-  });
-
-  $("achCount").textContent=state.unlocked.length+" / "+achievements.length;
-}
-
-function render(){
-  const r=rankFor(),n=nextRank();
-
-  $("aura").textContent=number(state.aura);
-  $("perClick").textContent="+"+number(clickPower());
-  $("perSec").textContent=number(autoPower());
-  $("rankName").textContent=r.name;
-  $("rankName").style.color=r.color;
-  $("orbEmoji").textContent=r.emoji;
-  $("quip").textContent=r.quip;
-  $("rebirths").textContent=state.rebirths;
-  $("multiplier").textContent="×"+multiplier().toFixed(2);
-  $("rebirthReq").textContent=number(rebirthRequirement())+" aura held";
-  $("rebirthBtn").disabled=state.aura<rebirthRequirement();
-  $("clicksStat").textContent=number(state.clicks);
-  $("earnedStat").textContent=number(state.totalEarned);
-  $("upgradesStat").textContent=number(totalUpgrades(state));
-  $("timeStat").textContent=Math.floor(state.playSeconds/60)+"m";
-
-  if(n){
-    $("rankProgress").style.width=Math.max(0,Math.min(100,
-      (state.totalEarned-r.min)/(n.min-r.min)*100
-    ))+"%";
-    $("rankProgressText").textContent=
-      "Next rank: "+n.name+" · "+number(n.min-state.totalEarned)+" aura to go";
-  }else{
-    $("rankProgress").style.width="100%";
-    $("rankProgressText").textContent="ALL RANKS CRACKED.";
-  }
-
-  renderShop();
-  renderAchievements();
-}
-
-function clickOrb(){
-  const g=clickPower();
-  state.aura+=g;
-  state.totalEarned+=g;
-  state.clicks++;
-  checkAchievements();
-  render();
-  saveSoon();
-}
-
-function buy(id){
-  const u=upgrades.find(x=>x.id===id);
-  if(!u)return;
-
-  const p=cost(u);
-  if(state.aura<p)return;
-
-  state.aura-=p;
-  state.upgrades[id]=owned(id)+1;
-  render();
-  saveSoon();
-}
-
-$("orbButton").addEventListener("click",clickOrb);
-$("tapButton").addEventListener("click",clickOrb);
-
-$("rebirthBtn").addEventListener("click",()=>{
-  if(state.aura<rebirthRequirement())return;
-
-  if(!confirm("Rebirth now? Your current aura and upgrades will reset."))return;
-
-  state.aura=0;
-  state.upgrades={};
-  state.rebirths++;
-  checkAchievements();
-  render();
-  saveSoon();
-  toast("REBIRTH COMPLETE. Your aura is evolving.");
-});
-
-/* Supabase account and cloud saves */
-
-async function ensureProfile(){
-  if(!currentUser)return;
-
-  const {data,error}=await sb.from("player_profiles")
-    .select("username")
-    .eq("user_id",currentUser.id)
-    .maybeSingle();
-
-  if(error)throw error;
-
-  profileName=data?.username||safeName(
-    currentUser.user_metadata?.username||
-    currentUser.user_metadata?.name||
-    currentUser.email?.split("@")[0]
-  );
-
-  if(!data){
-    const {error:e}=await sb.from("player_profiles").insert({
-      user_id:currentUser.id,
-      username:profileName,
-      total_aura:Math.floor(state.totalEarned),
-      rebirths:state.rebirths,
-      rank:rankFor().name
-    });
-
-    if(e)throw e;
-  }
-}
-
-async function loadCloudSave(){
-  if(!currentUser)return;
-
-  const {data,error}=await sb.from("player_saves")
-    .select("save_data")
-    .eq("user_id",currentUser.id)
-    .maybeSingle();
-
-  if(error)throw error;
-
-  if(data?.save_data&&typeof data.save_data.aura==="number"){
-    const local=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");
-
-    if(!local||Number(data.save_data.totalEarned||0)>Number(local.totalEarned||0)){
-      state={
-        ...freshState(),
-        ...data.save_data,
-        upgrades:data.save_data.upgrades||{},
-        unlocked:Array.isArray(data.save_data.unlocked)?data.save_data.unlocked:[]
-      };
-
-      saveLocal();
-      checkAchievements();
-      render();
-      toast("Cloud save loaded.");
-    }
-  }
-}
-
-async function syncCloudNow(){
-  if(!currentUser||cloudBusy)return;
-
-  cloudBusy=true;
-
-  try{
-    const {error:e1}=await sb.from("player_saves").upsert({
-      user_id:currentUser.id,
-      save_data:{...state,lastSeen:Date.now(),version:1},
-      updated_at:new Date().toISOString()
-    },{onConflict:"user_id"});
-
-    if(e1)throw e1;
-
-    const {error:e2}=await sb.from("player_profiles").upsert({
-      user_id:currentUser.id,
-      username:safeName(profileName),
-      total_aura:Math.floor(state.totalEarned),
-      rebirths:state.rebirths,
-      rank:rankFor().name,
-      updated_at:new Date().toISOString()
-    },{onConflict:"user_id"});
-
-    if(e2)throw e2;
-
-    setAuthMessage("Cloud save synced.");
-    refreshLeaderboard();
-  }catch(e){
-    setAuthMessage("Cloud sync failed: "+(e.message||"Check that the SQL tables and policies are installed."));
-  }finally{
-    cloudBusy=false;
-  }
-}
-
-async function refreshLeaderboard(){
-  const list=$("leaderboardList");
-  list.innerHTML='<p class="subnote">Loading aura legends...</p>';
-
-  try{
-    const {data,error}=await sb.from("player_profiles")
-      .select("username,total_aura,rebirths,rank")
-      .order("total_aura",{ascending:false})
-      .limit(10);
-
-    if(error)throw error;
-
-    if(!data?.length){
-      list.innerHTML='<p class="subnote">No players yet. Sign in to claim the first spot.</p>';
-      return;
-    }
-
-    list.innerHTML="";
-
-    data.forEach((p,i)=>{
-      const row=document.createElement("div");
-      row.className="leaderrow";
-
-      const place=document.createElement("div");
-      place.className="leaderplace";
-      place.textContent=["🥇","🥈","🥉"][i]||"#"+(i+1);
-
-      const details=document.createElement("div");
-      const name=document.createElement("div");
-      const sub=document.createElement("div");
-      const score=document.createElement("div");
-
-      name.className="leadername";
-      name.textContent=p.username||"AuraPlayer";
-
-      sub.className="leadersub";
-      sub.textContent=(p.rank||"NPC ENERGY")+" · "+(p.rebirths||0)+" rebirths";
-
-      score.className="leaderscore";
-      score.textContent=number(p.total_aura);
-
-      details.append(name,sub);
-      row.append(place,details,score);
-      list.appendChild(row);
-    });
-  }catch(e){
-    list.innerHTML='<p class="subnote">Leaderboard unavailable. Check the SQL tables and RLS policies in Supabase.</p>';
-  }
-}
-
-async function initAuth(){
-  const {data,error}=await sb.auth.getSession();
-
-  if(error)console.warn(error);
-
-  currentUser=data.session?.user||null;
-
-  if(currentUser){
-    try{
-      await ensureProfile();
-      await loadCloudSave();
-      await syncCloudNow();
-    }catch(e){
-      setAuthMessage(e.message||"Could not load account data.");
-    }
-  }
-
-  updateAccountUI();
-  refreshLeaderboard();
-
-  sb.auth.onAuthStateChange((event,session)=>{
-    currentUser=session?.user||null;
-
-    setTimeout(async()=>{
-      if(currentUser){
-        try{
-          await ensureProfile();
-          await loadCloudSave();
-          await syncCloudNow();
-        }catch(e){
-          setAuthMessage(e.message||"Account setup failed.");
-        }
-      }
-
-      updateAccountUI();
-      refreshLeaderboard();
-    },0);
-  });
-}
-
-async function authAction(action){
-  setAuthMessage("Working...");
-
-  const email=$("authEmail").value.trim();
-  const password=$("authPassword").value;
-
-  try{
-    if(action==="signup"){
-      if(password.length<8)throw Error("Use a password with at least 8 characters.");
-
-      const {data,error}=await sb.auth.signUp({
-        email,
-        password,
-        options:{
-          data:{username:safeName($("authUsername").value)},
-          emailRedirectTo:location.origin+location.pathname
-        }
-      });
-
-      if(error)throw error;
-
-      if(!data.session){
-        setAuthMessage("Check your email for the confirmation link, then sign in.");
-        return;
-      }
-
-      currentUser=data.user;
-      profileName=safeName($("authUsername").value||email.split("@")[0]);
-
-      await ensureProfile();
-      await syncCloudNow();
-
-    }else if(action==="signin"){
-      const {data,error}=await sb.auth.signInWithPassword({email,password});
-      if(error)throw error;
-
-      currentUser=data.user;
-      await ensureProfile();
-      await loadCloudSave();
-      await syncCloudNow();
-
-    }else if(action==="google"){
-      const {error}=await sb.auth.signInWithOAuth({
-        provider:"google",
-        options:{redirectTo:location.origin+location.pathname}
-      });
-
-      if(error)throw error;
-      return;
-
-    }else if(action==="forgot"){
-      if(!email)throw Error("Enter your email address first.");
-
-      const {error}=await sb.auth.resetPasswordForEmail(email,{
-        redirectTo:location.origin+location.pathname
-      });
-
-      if(error)throw error;
-
-      setAuthMessage("If the address has an account, a reset email has been sent.");
-      return;
-    }
-
-    updateAccountUI();
-    setAuthMessage("Account connected. Your progress is syncing.");
-    toast("Aura account connected!");
-
-  }catch(e){
-    setAuthMessage(e.message||"That action failed.");
-  }
-}
-
-$("accountBtn").addEventListener("click",()=>{
-  setAuthMessage("");
-  updateAccountUI();
-  openModal("accountModal");
-});
-
-$("signInBtn").addEventListener("click",()=>authAction("signin"));
-$("signUpBtn").addEventListener("click",()=>authAction("signup"));
-$("googleSignInBtn").addEventListener("click",()=>authAction("google"));
-$("forgotPasswordBtn").addEventListener("click",()=>authAction("forgot"));
-
-$("guestBtn").addEventListener("click",()=>{
-  closeModal("accountModal");
-  toast("Guest mode active. Saves stay on this device.");
-});
-
-$("signOutBtn").addEventListener("click",async()=>{
-  const {error}=await sb.auth.signOut();
-
-  if(error){
-    setAuthMessage(error.message);
-    return;
-  }
-
-  currentUser=null;
-  profileName="";
-  updateAccountUI();
-  toast("Signed out.");
-});
-
-$("saveProfileBtn").addEventListener("click",async()=>{
-  const name=safeName($("profileUsername").value);
-
-  try{
-    const {error}=await sb.from("player_profiles")
-      .update({username:name})
-      .eq("user_id",currentUser.id);
-
-    if(error)throw error;
-
-    profileName=name;
-    await syncCloudNow();
-    updateAccountUI();
-    toast("Profile updated.");
-  }catch(e){
-    setAuthMessage(e.message);
-  }
-});
-
-$("syncNowBtn").addEventListener("click",syncCloudNow);
-$("refreshLeaderboard").addEventListener("click",refreshLeaderboard);
-
-/* Save code export/import */
-
-$("saveBtn").addEventListener("click",()=>{
-  $("saveCode").value="";
-  openModal("saveModal");
-});
-
-$("exportBtn").addEventListener("click",()=>{
-  $("saveCode").value=btoa(unescape(encodeURIComponent(JSON.stringify(state))));
-  toast("Save code exported.");
-});
-
-$("copyBtn").addEventListener("click",async()=>{
-  try{
-    await navigator.clipboard.writeText($("saveCode").value);
-    toast("Copied!");
-  }catch(e){
-    $("saveCode").select();
-    document.execCommand("copy");
-    toast("Copy attempted.");
-  }
-});
-
-$("importBtn").addEventListener("click",()=>{
-  try{
-    const d=JSON.parse(decodeURIComponent(escape(atob($("saveCode").value.trim()))));
-
-    if(d.version!==1||typeof d.aura!=="number")throw Error();
-
-    state={
-      ...freshState(),
-      ...d,
-      upgrades:d.upgrades||{},
-      unlocked:Array.isArray(d.unlocked)?d.unlocked:[]
-    };
-
-    checkAchievements();
-    render();
-    saveSoon();
-    toast("Save imported.");
-  }catch(e){
-    toast("That save code is invalid.");
-  }
-});
-
-/* Settings */
-
+function updateAccountUI(){const signed=!!currentUser;$("signedOutView").hidden=signed;$("signedInView").hidden=!signed;$("accountBtn").textContent=signed?"👤 "+(profileName||"Account").slice(0,14):"👤 Account";$("accountIntro").textContent=signed?"Your account is connected. Cloud saves are enabled.":"Play as a guest or sign in to sync progress.";if(signed){$("profileUsername").value=profileName||currentUser.email?.split("@")[0]||"AuraPlayer";$("signedInSummary").textContent="Signed in as "+(currentUser.email||"Google account")}}
+function renderShop(){$("shop").innerHTML="";upgrades.forEach(u=>{const p=cost(u),b=document.createElement("button");b.className="upgrade";b.disabled=state.aura<p;b.innerHTML='<span class="uicon">'+u.icon+'</span><span><span class="uname">'+u.name+'</span><span class="udesc">'+u.desc+'</span><span class="owned">OWNED: '+owned(u.id)+'</span></span><span class="ucost">✨ '+number(p)+'</span>';b.addEventListener("click",()=>buy(u.id));$("shop").appendChild(b)})}
+function checkAchievements(){achievements.forEach(a=>{if(a.test(state)&&!state.unlocked.includes(a.id))state.unlocked.push(a.id)})}
+function renderAchievements(){$("achievements").innerHTML="";achievements.forEach(a=>{const yes=state.unlocked.includes(a.id),d=document.createElement("div");d.className="achievement";d.innerHTML='<span class="achicon">'+a.icon+'</span><div><div class="achname">'+a.name+'</div><div class="achdesc">'+a.desc+'</div></div><span class="check">'+(yes?"✓":"🔒")+'</span>';if(yes)d.style.background="#c8ff4209";$("achievements").appendChild(d)});$("achCount").textContent=state.unlocked.length+" / "+achievements.length}
+function render(){const r=rankFor(),n=nextRank();$("aura").textContent=number(state.aura);$("perClick").textContent="+"+number(clickPower());$("perSec").textContent=number(autoPower());$("rankName").textContent=r.name;$("rankName").style.color=r.color;$("orbEmoji").textContent=r.emoji;$("quip").textContent=r.quip;$("rebirths").textContent=state.rebirths;$("multiplier").textContent="×"+multiplier().toFixed(2);$("rebirthReq").textContent=number(rebirthRequirement())+" aura held";$("rebirthBtn").disabled=state.aura<rebirthRequirement();$("clicksStat").textContent=number(state.clicks);$("earnedStat").textContent=number(state.totalEarned);$("upgradesStat").textContent=number(totalUpgrades(state));$("timeStat").textContent=Math.floor(state.playSeconds/60)+"m";if(n){$("rankProgress").style.width=Math.max(0,Math.min(100,(state.totalEarned-r.min)/(n.min-r.min)*100))+"%";$("rankProgressText").textContent="Next rank: "+n.name+" · "+number(n.min-state.totalEarned)+" aura to go"}else{$("rankProgress").style.width="100%";$("rankProgressText").textContent="ALL RANKS CRACKED."}renderShop();renderAchievements()}
+function clickOrb(){const g=clickPower();state.aura+=g;state.totalEarned+=g;state.clicks++;checkAchievements();render();saveSoon()}
+function buy(id){const u=upgrades.find(x=>x.id===id),p=cost(u);if(state.aura<p)return;state.aura-=p;state.upgrades[id]=owned(id)+1;render();saveSoon()}
+$("orbButton").addEventListener("click",clickOrb);$("tapButton").addEventListener("click",clickOrb);
+$("rebirthBtn").addEventListener("click",()=>{if(state.aura<rebirthRequirement())return;if(!confirm("Rebirth now? Your current aura and upgrades will reset."))return;state.aura=0;state.upgrades={};state.rebirths++;checkAchievements();render();saveSoon();toast("REBIRTH COMPLETE. Your aura is evolving.")});
+
+async function ensureProfile(){if(!currentUser)return;const {data,error}=await sb.from("player_profiles").select("username").eq("user_id",currentUser.id).maybeSingle();if(error)throw error;profileName=data?.username||safeName(currentUser.user_metadata?.username||currentUser.user_metadata?.name||currentUser.email?.split("@")[0]);if(!data){const {error:e}=await sb.from("player_profiles").insert({user_id:currentUser.id,username:profileName,total_aura:Math.floor(state.totalEarned),rebirths:state.rebirths,rank:rankFor().name});if(e)throw e}}
+async function loadCloudSave(){if(!currentUser)return;const {data,error}=await sb.from("player_saves").select("save_data").eq("user_id",currentUser.id).maybeSingle();if(error)throw error;if(data?.save_data&&typeof data.save_data.aura==="number"){const local=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");if(!local||Number(data.save_data.totalEarned||0)>Number(local.totalEarned||0)){state={...freshState(),...data.save_data,upgrades:data.save_data.upgrades||{},unlocked:Array.isArray(data.save_data.unlocked)?data.save_data.unlocked:[]};saveLocal();checkAchievements();render();toast("Cloud save loaded.")}}}
+async function syncCloudNow(){if(!currentUser||cloudBusy)return;cloudBusy=true;try{const {error:e1}=await sb.from("player_saves").upsert({user_id:currentUser.id,save_data:{...state,lastSeen:Date.now(),version:1},updated_at:new Date().toISOString()},{onConflict:"user_id"});if(e1)throw e1;const {error:e2}=await sb.from("player_profiles").upsert({user_id:currentUser.id,username:safeName(profileName),total_aura:Math.floor(state.totalEarned),rebirths:state.rebirths,rank:rankFor().name,updated_at:new Date().toISOString()},{onConflict:"user_id"});if(e2)throw e2;setAuthMessage("Cloud save synced.");refreshLeaderboard()}catch(e){setAuthMessage("Cloud sync failed: "+(e.message||"Check that the SQL tables and policies are installed."))}finally{cloudBusy=false}}
+async function refreshLeaderboard(){const list=$("leaderboardList");list.innerHTML='<p class="subnote">Loading aura legends...</p>';try{const {data,error}=await sb.from("player_profiles").select("username,total_aura,rebirths,rank").order("total_aura",{ascending:false}).limit(10);if(error)throw error;if(!data?.length){list.innerHTML='<p class="subnote">No players yet. Sign in to claim the first spot.</p>';return}list.innerHTML="";data.forEach((p,i)=>{const row=document.createElement("div");row.className="leaderrow";const place=document.createElement("div");place.className="leaderplace";place.textContent=["🥇","🥈","🥉"][i]||"#"+(i+1);const details=document.createElement("div"),name=document.createElement("div"),sub=document.createElement("div"),score=document.createElement("div");name.className="leadername";name.textContent=p.username||"AuraPlayer";sub.className="leadersub";sub.textContent=(p.rank||"NPC ENERGY")+" · "+(p.rebirths||0)+" rebirths";score.className="leaderscore";score.textContent=number(p.total_aura);details.append(name,sub);row.append(place,details,score);list.appendChild(row)})}catch(e){list.innerHTML='<p class="subnote">Leaderboard unavailable. Check the SQL tables and RLS policies in Supabase.</p>'}}
+async function initAuth(){const {data,error}=await sb.auth.getSession();if(error)console.warn(error);currentUser=data.session?.user||null;if(currentUser){try{await ensureProfile();await loadCloudSave();await syncCloudNow()}catch(e){setAuthMessage(e.message||"Could not load account data.")}}updateAccountUI();refreshLeaderboard();sb.auth.onAuthStateChange((event,session)=>{currentUser=session?.user||null;setTimeout(async()=>{if(currentUser){try{await ensureProfile();await loadCloudSave();await syncCloudNow()}catch(e){setAuthMessage(e.message||"Account setup failed.")}}updateAccountUI();refreshLeaderboard()},0)})}
+async function authAction(action){setAuthMessage("Working...");const email=$("authEmail").value.trim(),password=$("authPassword").value;try{if(action==="signup"){if(password.length<8)throw Error("Use a password with at least 8 characters.");const {data,error}=await sb.auth.signUp({email,password,options:{data:{username:safeName($("authUsername").value)},emailRedirectTo:location.origin+location.pathname}});if(error)throw error;if(!data.session){setAuthMessage("Check your email for the confirmation link, then sign in.");return}currentUser=data.user;profileName=safeName($("authUsername").value||email.split("@")[0]);await ensureProfile();await syncCloudNow()}else if(action==="signin"){const {data,error}=await sb.auth.signInWithPassword({email,password});if(error)throw error;currentUser=data.user;await ensureProfile();await loadCloudSave();await syncCloudNow()}else if(action==="google"){const {error}=await sb.auth.signInWithOAuth({provider:"google",options:{redirectTo:location.origin+location.pathname}});if(error)throw error;return}else if(action==="forgot"){if(!email)throw Error("Enter your email address first.");const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});if(error)throw error;setAuthMessage("If the address has an account, a reset email has been sent.");return}updateAccountUI();setAuthMessage("Account connected. Your progress is syncing.");toast("Aura account connected!")}catch(e){setAuthMessage(e.message||"That action failed.")}}
+$("accountBtn").addEventListener("click",()=>{setAuthMessage("");updateAccountUI();openModal("accountModal")});
+$("signInBtn").addEventListener("click",()=>authAction("signin"));$("signUpBtn").addEventListener("click",()=>authAction("signup"));$("googleSignInBtn").addEventListener("click",()=>authAction("google"));$("forgotPasswordBtn").addEventListener("click",()=>authAction("forgot"));
+$("guestBtn").addEventListener("click",()=>{closeModal("accountModal");toast("Guest mode active. Saves stay on this device.")});
+$("signOutBtn").addEventListener("click",async()=>{const {error}=await sb.auth.signOut();if(error){setAuthMessage(error.message);return}currentUser=null;profileName="";updateAccountUI();toast("Signed out.")});
+$("saveProfileBtn").addEventListener("click",async()=>{const name=safeName($("profileUsername").value);try{const {error}=await sb.from("player_profiles").update({username:name}).eq("user_id",currentUser.id);if(error)throw error;profileName=name;await syncCloudNow();updateAccountUI();toast("Profile updated.")}catch(e){setAuthMessage(e.message)}});
+$("syncNowBtn").addEventListener("click",syncCloudNow);$("refreshLeaderboard").addEventListener("click",refreshLeaderboard);
+$("saveBtn").addEventListener("click",()=>{ $("saveCode").value="";openModal("saveModal")});
+$("exportBtn").addEventListener("click",()=>{$("saveCode").value=btoa(unescape(encodeURIComponent(JSON.stringify(state))));toast("Save code exported.")});
+$("copyBtn").addEventListener("click",async()=>{try{await navigator.clipboard.writeText($("saveCode").value);toast("Copied!") }catch(e){$("saveCode").select();document.execCommand("copy");toast("Copy attempted.")}});
+$("importBtn").addEventListener("click",()=>{try{const d=JSON.parse(decodeURIComponent(escape(atob($("saveCode").value.trim()))));if(d.version!==1||typeof d.aura!=="number")throw Error();state={...freshState(),...d,upgrades:d.upgrades||{},unlocked:Array.isArray(d.unlocked)?d.unlocked:[]};checkAchievements();render();saveSoon();toast("Save imported.")}catch(e){toast("That save code is invalid.")}});
 $("settingsBtn").addEventListener("click",()=>openModal("settingsModal"));
+$("soundToggle").addEventListener("change",e=>{settings.sound=e.target.checked;localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings))});
+$("reducedToggle").addEventListener("change",e=>{settings.reduced=e.target.checked;localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings))});
+$("formatToggle").addEventListener("change",e=>{settings.format=e.target.value;localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));render()});
+$("aboutLink").addEventListener("click",e=>{e.preventDefault();alert("Tap the orb to earn aura. Buy upgrades to boost clicks and passive aura. Reach the rebirth requirement to reset for a permanent multiplier.")});
+$("privacyLink").addEventListener("click",e=>{e.preventDefault();alert("Guest progress is stored in your browser. Signed-in saves and your chosen player name, rank, aura and rebirth count are stored in the AuraClicker Supabase project. Do not use your real name.")});
 
-$("soundToggle").addEventListener("change",e=>{
-  settings.sound=e.target.checked;
-  localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));
-});
-
-$("reducedToggle").addEventListener("change",e=>{
-  settings.reduced=e.target.checked;
-  document.body.classList.toggle("reduced-effects",settings.reduced);
-  localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));
-});
-
-$("formatToggle").addEventListener("change",e=>{
-  settings.format=e.target.value;
-  localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));
-  render();
-});
-
-$("aboutLink").addEventListener("click",e=>{
-  e.preventDefault();
-  alert("Tap the orb to earn aura. Buy upgrades to boost clicks and passive aura. Reach the rebirth requirement to reset for a permanent multiplier.");
-});
-
-$("privacyLink").addEventListener("click",e=>{
-  e.preventDefault();
-  alert("Guest progress is stored in your browser. Signed-in saves and your chosen player name, rank, aura and rebirth count are stored in the AuraClicker Supabase project. Do not use your real name.");
-});
-
-/* Start the game */
-
-loadLocal();
-checkAchievements();
-render();
-
-$("year").textContent=new Date().getFullYear();
-$("soundToggle").checked=!!settings.sound;
-$("reducedToggle").checked=!!settings.reduced;
-$("formatToggle").value=settings.format||"short";
-document.body.classList.toggle("reduced-effects",!!settings.reduced);
-
-initAuth();
-
-setInterval(()=>{
-  const now=Date.now();
-  const dt=Math.min(2,Math.max(0,(now-lastTick)/1000));
-  lastTick=now;
-
-  if(dt>0){
-    const gain=autoPower()*dt;
-    state.aura+=gain;
-    state.totalEarned+=gain;
-    state.playSeconds+=dt;
-    checkAchievements();
-    render();
-  }
-
-  if(now-(state.lastSeen||now)>5000)saveLocal();
-},1000);
-
+loadLocal();checkAchievements();render();$("year").textContent=new Date().getFullYear();$("soundToggle").checked=!!settings.sound;$("reducedToggle").checked=!!settings.reduced;$("formatToggle").value=settings.format||"short";initAuth();
+setInterval(()=>{const now=Date.now(),dt=Math.min(2,Math.max(0,(now-lastTick)/1000));lastTick=now;if(dt>0){const gain=autoPower()*dt;state.aura+=gain;state.totalEarned+=gain;state.playSeconds+=dt;checkAchievements();render()}if(now-(state.lastSeen||now)>5000)saveLocal();},1000);
 window.addEventListener("beforeunload",saveLocal);
-
-document.addEventListener("visibilitychange",()=>{
-  if(document.hidden){
-    saveLocal();
-  }else{
-    const now=Date.now();
-    const elapsed=Math.min(8*60*60,Math.max(0,(now-(state.lastSeen||now))/1000));
-    const gain=autoPower()*elapsed;
-
-    if(gain>0){
-      state.aura+=gain;
-      state.totalEarned+=gain;
-    }
-
-    lastTick=now;
-    render();
-    saveSoon();
-  }
-});
-
+document.addEventListener("visibilitychange",()=>{if(document.hidden)saveLocal();else{const now=Date.now(),elapsed=Math.min(8*60*60,Math.max(0,(now-(state.lastSeen||now))/1000)),gain=autoPower()*elapsed;if(gain>0){state.aura+=gain;state.totalEarned+=gain}lastTick=now;render();saveSoon()}});
 })();
 </script>
-
 </body>
 </html>
